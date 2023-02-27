@@ -14,7 +14,9 @@ html {
 
 h1, 
 a,
-button {
+button,
+input,
+.main-text {
     font-style: normal;
 }
 
@@ -30,6 +32,11 @@ input {
     font-weight: 500;
 }
 
+a,
+.main-text {
+    font-weight: 700;
+}
+
 h1 {
     font-weight: 800;
     font-size: 4.2rem;
@@ -42,7 +49,6 @@ h1 {
 }
 
 a {
-    font-weight: 700;
     font-size: 1.4rem;
     text-decoration:none;
 }
@@ -64,6 +70,12 @@ button {
     color: white;
 }
 
+.main-text {
+font-size: 1.8rem;
+line-height: 111%;
+color: #2E2E2F;
+}
+
 /* HEADER */
 
 body {
@@ -71,7 +83,9 @@ body {
 }
 
 header,
-.search-bar {
+.search-bar,
+main,
+.movie-cnt {
     display: flex;
 }
 
@@ -85,10 +99,13 @@ header {
 }
 /* SEARCH BAR */
 
+section {
+    display: block;
+    margin: 0 auto;
+    width: 462px;
+}
+
 .search-bar {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 462px;
     height: 38px;
     justify-content: center;
     align-items: center;
@@ -112,7 +129,7 @@ input {
     width: 100%;
     background: #2E2E2F;
     border-radius: 6px 0px 0px 6px;
-    padding: 9px 0px 9px 41px;
+    padding: 0.9em 0em 0.9em 4.1em;
 }
 
 button {
@@ -124,3 +141,24 @@ button {
 
 /* MAIN */
 
+main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main p {
+    padding-top: 1em;
+}
+
+.movie-cnt {
+    height: 170px;
+}
+
+.movie-cnt img {
+    height: 100%;
+}
+
+.movie-description-cnt {
+
+}
