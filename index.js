@@ -27,9 +27,11 @@ function renderMovies(){
         <div class="movie-cnt">
             <img class="movie-poster" src="${movie.Poster}" alt="movie poster"/>
             <div class="movie-description-cnt">
-                <h2>${movie.Title}</h2>
-                <p class="rating">${movie.imdbRating}</p>
-                <div class="details-row">
+                <div class="row-1">
+                    <h2>${movie.Title}</h2>
+                    <p class="rating">${movie.imdbRating}</p>
+                </div>
+                <div class="row-2">
                     <p class="runtime">${movie.Runtime}</p>
                     <p class="genre">${movie.Genre}</p>
                     <button id="add-watchlist" class="watchlist add"></button>

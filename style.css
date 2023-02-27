@@ -15,7 +15,6 @@ html {
 a,
 input,
 button {
-    line-height: 143%;
     font-size: 1.4rem;
 }
 
@@ -33,7 +32,6 @@ a,
 h2,
 .main-text {
     font-size: 1.8rem;
-    line-height: 111%;
 }
 
 h2,
@@ -50,7 +48,6 @@ button,
 .plot{
     font-weight: 400;
     font-size: 1.2rem;
-    line-height: 167%;
 }
 
 input,
@@ -61,7 +58,6 @@ input,
 h1 {
     font-weight: 800;
     font-size: 4.2rem;
-    line-height: 56%;
 
     display: flex;
     align-items: center;
@@ -96,8 +92,7 @@ body {
 header,
 .search-bar,
 main,
-.movie-cnt,
-.details-row {
+.movie-cnt {
     display: flex;
 }
 
@@ -171,16 +166,18 @@ main p {
     height: 100%;
 }
 
-.details-row {
+.row-1, .row-2 {
+    border: 1px solid white;
+    display: flex;
+    align-content: center;
     align-items: center;
-    height: 30px;
-    padding-left: 1em;
+    height: 60px;
+    text-align: center;
 }
 
-.details-row p {
-    display: block;
-    margin-bottom: 10px;
-    padding-right: 1.8em;
+.rating, h2, .runtime, .genre, .watchlist {
+    display: inline-block;
+    margin: auto 0;
 }
 
 .watchlist {
