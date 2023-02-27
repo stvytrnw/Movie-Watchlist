@@ -12,14 +12,6 @@ html {
 
 /* TYPOGRAPHY */
 
-h1, 
-a,
-button,
-input,
-.main-text {
-    font-style: normal;
-}
-
 a,
 input,
 button {
@@ -28,13 +20,42 @@ button {
 }
 
 button,
-input {
+input,
+h2 {
     font-weight: 500;
 }
 
 a,
 .main-text {
     font-weight: 700;
+}
+
+h2,
+.main-text {
+    font-size: 1.8rem;
+    line-height: 111%;
+}
+
+h2,
+button,
+.rating,
+.runtime,
+.genre {
+    color: #FFFFFF;
+}
+
+.rating, 
+.runtime,
+.genre,
+.plot{
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 167%;
+}
+
+input,
+.plot {
+    color: #A5A5A5;
 }
 
 h1 {
@@ -62,18 +83,8 @@ a:hover {
    opacity: 50%;
 }
 
-input {
-    color: #A5A5A5;
-}
-
-button {
-    color: white;
-}
-
 .main-text {
-font-size: 1.8rem;
-line-height: 111%;
-color: #2E2E2F;
+    color: #2E2E2F;
 }
 
 /* HEADER */
@@ -85,7 +96,8 @@ body {
 header,
 .search-bar,
 main,
-.movie-cnt {
+.movie-cnt,
+.details-row {
     display: flex;
 }
 
@@ -159,6 +171,24 @@ main p {
     height: 100%;
 }
 
-.movie-description-cnt {
+.details-row {
+    align-items: center;
+    height: 30px;
+    padding-left: 1em;
+}
 
+.details-row p {
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 1.8em;
+}
+
+.watchlist {
+    background-size: cover;
+    height: 15px;
+    width: 15px;
+}
+
+.add {
+    background-image: url(images/Icon\ \(2\).png);
 }
