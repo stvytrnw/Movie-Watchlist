@@ -1,1 +1,3 @@
-export let watchlist = [];
+let watchlist = [];
+
+export {watchlist}

@@ -33,11 +33,12 @@ function renderMovies(){
 
 document.addEventListener('click', e => {
     if (moviesArray.some(movie => movie.uuid === e.target.id)) {
-        if(watchlist.some(movie => movie.uuid !== e.target.id)) {
-            watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id))
+        if(watchlist.some(movie => movie.uuid === e.target.id)) {
+            watchlist = watchlist.filter(movie => movie.uuid !== e.target.id)
             console.log(watchlist)
         } else {
-            console.log('moin')
+            watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id)[0])
+            console.log(watchlist)
         }
     }
 })
