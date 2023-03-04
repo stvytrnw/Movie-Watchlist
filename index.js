@@ -1,4 +1,8 @@
+import Movie from './Movie.js'
+
 let moviesArray = [];
+
+const mainEl = document.getElementById("main")
 
 document.getElementById('search-bar').addEventListener('submit', e => {
     e.preventDefault();
@@ -11,33 +15,23 @@ document.getElementById('search-bar').addEventListener('submit', e => {
                 fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=72c0f766`)
                     .then(res => res.json())
                     .then(data => {
-                        moviesArray.push(data);
+                        moviesArray.push(new Movie(data));
                         renderMovies();
-                        console.log(data)
                     })
             })
         })
 })
 
 function renderMovies(){
-    document.getElementById("main").innerHTML = ''
+    mainEl.innerHTML = ''
 
     moviesArray.map(movie => {
-        document.getElementById("main").innerHTML += `
-        <div class="movie-cnt">
-            <img class="movie-poster" src="${movie.Poster}" alt="movie poster"/>
-            <div class="movie-description-cnt">
-                <div class="row-1">
-                    <h2>${movie.Title}</h2>
-                    <p class="rating">${movie.imdbRating}</p>
-                </div>
-                <div class="row-2">
-                    <p class="runtime">${movie.Runtime}</p>
-                    <p class="genre">${movie.Genre}</p>
-                    <button id="add-watchlist" class="watchlist add"></button>
-                </div>
-                <p class="plot">${movie.Plot}</p>
-            </div>
-        </div>`
+        mainEl.innerHTML += movie.getMovieHTML()
     })
 }
+
+document.addEventListener('click', e => {
+    if (moviesArray.filter(movie => movie.uuid === e.target.id)) {
+        console.log(e.target.id)
+    }
+})
