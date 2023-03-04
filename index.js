@@ -1,4 +1,5 @@
 import Movie from './Movie.js'
+import { watchlist } from './watchlist.js';
 
 let moviesArray = [];
 
@@ -31,7 +32,12 @@ function renderMovies(){
 }
 
 document.addEventListener('click', e => {
-    if (moviesArray.filter(movie => movie.uuid === e.target.id)) {
-        console.log(e.target.id)
+    if (moviesArray.some(movie => movie.uuid === e.target.id)) {
+        if(watchlist.some(movie => movie.uuid !== e.target.id)) {
+            watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id))
+            console.log(watchlist)
+        } else {
+            console.log('moin')
+        }
     }
 })
