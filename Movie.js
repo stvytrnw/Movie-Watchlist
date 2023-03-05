@@ -4,6 +4,7 @@ class Movie {
     constructor (data) {
         Object.assign(this, data)
         this.uuid = uuidv4();
+        this.onWatchlist = false;
     }
 
     getMovieHTML() {
