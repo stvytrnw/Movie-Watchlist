@@ -1,3 +1,13 @@
-let watchlist = [];
+import { watchlist } from "./index.js";
 
-export {watchlist}
+const mainEl = document.getElementById("main")
+
+function getWatchlistHtml(){
+    mainEl.innerHTML = ''
+
+    watchlist.map(movie => {
+        mainEl.innerHTML += movie.getMovieHTML()
+    })
+}
+
+getWatchlistHtml();
