@@ -15,14 +15,18 @@ if (searchEl) {
         fetch(`http://www.omdbapi.com/?s=${document.getElementById('search-input').value}&apikey=72c0f766`)
             .then(res => res.json())
             .then(data => {
-                data.Search.map(movie => {
-                    fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=72c0f766`)
-                        .then(res => res.json())
-                        .then(data => {
-                            moviesArray.push(new Movie(data));
-                            renderMovies();
-                        })
-                })
+                if(data.Response !== 'False') {
+                    data.Search.map(movie => {
+                        fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=72c0f766`)
+                            .then(res => res.json())
+                            .then(data => {
+                                moviesArray.push(new Movie(data));
+                                renderMovies();
+                            })
+                    })
+                } else {
+                    mainEl.innerHTML = `<h3>Unable to find what you’re looking for.<br/> Please try another search.</h3>`
+                }
             })
         document.getElementById('search-input').value = '';
     })
