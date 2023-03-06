@@ -9,7 +9,7 @@ class Movie {
 }
 
 function getMovieHTML(data) {
-    const list = JSON.parse(localStorage.getItem('watchlist'))
+    const list = getWatchlist();
     const { Poster, Title, imdbRating, Runtime, Genre, Plot, uuid, onWatchlist } = data;
 
     let btnStatus = 'add'
@@ -40,4 +40,12 @@ function getMovieHTML(data) {
     </div>`
 }
 
-export {Movie, getMovieHTML};
+function getWatchlist() {
+    if(JSON.parse(localStorage.getItem('watchlist')) === null) {
+        return []
+    } else {
+        return JSON.parse(localStorage.getItem('watchlist'))
+    }
+}
+
+export {Movie, getMovieHTML, getWatchlist};

@@ -1,18 +1,13 @@
-import {Movie, getMovieHTML} from './Movie.js'
+import {Movie, getMovieHTML, getWatchlist} from './Movie.js'
 
 
 let moviesArray = [];
-let watchlist = function(){
-    if (JSON.parse(localStorage.getItem('watchlist')) === null) {
-        return []
-    } else {
-        return JSON.parse(localStorage.getItem('watchlist'))
-    };
-}
-        
+let watchlist = getWatchlist();
 
 const mainEl = document.getElementById("main")
 const searchEl = document.getElementById('search-bar')
+
+console.log(watchlist);
 
 if (searchEl) {
     searchEl.addEventListener('submit', e => {

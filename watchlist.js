@@ -1,7 +1,8 @@
-import {Movie, getMovieHTML} from './Movie.js'
+import {Movie, getMovieHTML, getWatchlist} from './Movie.js'
 
 const mainEl = document.getElementById("main")
-let list = JSON.parse(localStorage.getItem('watchlist'))
+let list = getWatchlist()
+
 
 function getWatchlistHtml(){
     if (list.length !== 0){
