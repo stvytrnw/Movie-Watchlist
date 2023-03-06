@@ -1,3 +1,23 @@
+/* ANIMATIONS */
+.fadeIn {
+    animation: fadeIn 0.3s ease-in;
+}
+
+
+/* KEYFRAMES */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+/* BASIC */
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -38,7 +58,8 @@ h2, h3,
 h2,
 button,
 .rating,
-.row2-item{
+.row2-item,
+main a{
     color: #FFFFFF;
 }
 
@@ -73,7 +94,7 @@ a {
     text-decoration:none;
 }
 
-a:visited {
+header a:visited {
     color: black;
 }
 
@@ -154,7 +175,6 @@ button {
 
 main {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 570px;
     text-align: center;
@@ -212,4 +232,27 @@ main {
 
 .remove {
     background-image: url(images/Icon\ \(3\).png)
+}
+
+a {
+    transition: opacity, 0.6s;
+}
+
+a img {
+    height: 18px;
+}
+
+.no-content-cnt {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 570px;
+}
+
+main a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-top: 1.5em;
 }

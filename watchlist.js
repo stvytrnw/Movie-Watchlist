@@ -11,8 +11,14 @@ function getWatchlistHtml(){
         mainEl.innerHTML += getMovieHTML(movie)
     })
     } else {
-        mainEl.innerHTML = `<h3>Your watchlist is looking a little empty...</h3>
-        <a href="index.html"><img src="images/Icon\ \(2\).png"/>Let's add some Movies!</a>`
+        mainEl.innerHTML = `
+        <div class="no-content-cnt">
+            <h3>Your watchlist is looking a little empty...</h3>
+            <a id="link" href="index.html">
+                <img id="link" src="images/Icon\ \(2\).png"/>
+                <p>Let's add some movies!</p>
+            </a>
+        </div>`
     }
 }
 
