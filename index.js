@@ -42,8 +42,10 @@ function renderMovies(){
 document.addEventListener('click', e => {
     if (moviesArray.some(movie => movie.uuid === e.target.id)) {
         const movieSafe = moviesArray.filter(movie => movie.uuid === e.target.id)
-        if(watchlist.some(movie => movie.Title === movieSafe[0].Title)) {
-            watchlist = watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
+        if(watchlist){
+            if(watchlist.some(movie => movie.Title === movieSafe[0].Title)) {
+                watchlist = watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
+            }
         } else {
             watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id)[0])
         }
