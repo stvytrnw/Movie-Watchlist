@@ -14,7 +14,7 @@ function getMovieHTML(data) {
 
     let btnStatus = ''
 
-    if(list.filter(movie => movie.Title === Title).length > 0) {
+    if(list.filter(movie => movie.Title === Title && movie.imdbRating === imdbRating).length > 0) {
         btnStatus = 'remove'
     } else {
         btnStatus = 'add'
