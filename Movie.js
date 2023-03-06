@@ -12,14 +12,14 @@ function getMovieHTML(data) {
     const list = JSON.parse(localStorage.getItem('watchlist'))
     const { Poster, Title, imdbRating, Runtime, Genre, Plot, uuid, onWatchlist } = data;
 
-    let btnStatus = ''
+    let btnStatus = 'add'
 
-    if(list.filter(movie => movie.Title === Title && movie.imdbRating === imdbRating).length > 0) {
-        btnStatus = 'remove'
-    } else {
-        btnStatus = 'add'
+    if(list){
+        if(list.filter(movie => movie.Title === Title && movie.imdbRating === imdbRating).length > 0) {
+            btnStatus = 'remove'
+        }
     }
-
+  
 
     return `
     <div class="movie-cnt">
