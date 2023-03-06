@@ -2,7 +2,14 @@ import {Movie, getMovieHTML} from './Movie.js'
 
 
 let moviesArray = [];
-let watchlist = JSON.parse(localStorage.getItem('watchlist'));
+let watchlist = function(){
+    if (JSON.parse(localStorage.getItem('watchlist')) === null) {
+        return []
+    } else {
+        return JSON.parse(localStorage.getItem('watchlist'))
+    };
+}
+        
 
 const mainEl = document.getElementById("main")
 const searchEl = document.getElementById('search-bar')
@@ -42,10 +49,8 @@ function renderMovies(){
 document.addEventListener('click', e => {
     if (moviesArray.some(movie => movie.uuid === e.target.id)) {
         const movieSafe = moviesArray.filter(movie => movie.uuid === e.target.id)
-        if(watchlist){
-            if(watchlist.some(movie => movie.Title === movieSafe[0].Title)) {
-                watchlist = watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
-            }
+        if(watchlist.some(movie => movie.Title === movieSafe[0].Title)) {
+            watchlist = watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
         } else {
             watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id)[0])
         }
