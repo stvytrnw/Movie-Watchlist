@@ -92,6 +92,7 @@ h3 {
 a {
     font-size: 1.4rem;
     text-decoration:none;
+    color: black;
 }
 
 a:visited {
