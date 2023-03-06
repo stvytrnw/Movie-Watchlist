@@ -12,7 +12,7 @@ if (searchEl) {
         e.preventDefault();
         moviesArray = []
     
-        fetch(`http://www.omdbapi.com/?s=${document.getElementById('search-input').value}&apikey=72c0f766`)
+        fetch(`https://www.omdbapi.com/?s=${document.getElementById('search-input').value}&apikey=72c0f766`)
             .then(res => res.json())
             .then(data => {
                 if(data.Response !== 'False') {
