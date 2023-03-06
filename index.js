@@ -7,8 +7,6 @@ let watchlist = getWatchlist();
 const mainEl = document.getElementById("main")
 const searchEl = document.getElementById('search-bar')
 
-console.log(watchlist);
-
 if (searchEl) {
     searchEl.addEventListener('submit', e => {
         e.preventDefault();
