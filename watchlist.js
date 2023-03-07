@@ -1,8 +1,7 @@
-import {Movie, getMovieHTML, getWatchlist} from './Movie.js'
+import { getMovieHTML, getWatchlist, removeFromWatchlist, safeToLocalStorage } from './utils.js'
 
 const mainEl = document.getElementById("main")
 let list = getWatchlist()
-
 
 function getWatchlistHtml(){
     if (list.length !== 0){
@@ -26,8 +25,8 @@ function getWatchlistHtml(){
 document.addEventListener('click', e => {
     if (list.some(movie => movie.uuid === e.target.id)) {
         const movieSafe = list.filter(movie => movie.uuid === e.target.id)
-        list = list.filter(movie => movie.Title !== movieSafe[0].Title)
-        localStorage.setItem('watchlist', JSON.stringify(list));
+        list = removeFromWatchlist(list, movieSafe)
+        safeToLocalStorage(list);
         getWatchlistHtml();
     }
 })

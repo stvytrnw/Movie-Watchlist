@@ -78,8 +78,6 @@ input,
 h1 {
     font-weight: 800;
     font-size: 4.2rem;
-
-    display: flex;
     align-items: center;
     text-align: justify;
     letter-spacing: -0.045em;
@@ -118,7 +116,10 @@ header,
 .search-bar,
 main,
 .movie-cnt,
-.row-1, .row-2 {
+.row-1, .row-2, 
+h1,
+.no-content-cnt,
+main a {
     display: flex;
 }
 
@@ -203,7 +204,6 @@ a img {
 }
 
 .no-content-cnt {
-    display: flex; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -211,7 +211,6 @@ a img {
 }
 
 main a {
-    display: flex;
     align-items: center;
     gap: 7px;
     padding-top: 1.5em;

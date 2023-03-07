@@ -4,13 +4,12 @@ class Movie {
     constructor (data) {
         Object.assign(this, data)
         this.uuid = uuidv4();
-        this.onWatchlist = false;
     }
 }
 
 function getMovieHTML(data) {
     const list = getWatchlist();
-    const { Poster, Title, imdbRating, Runtime, Genre, Plot, uuid, onWatchlist } = data;
+    const { Poster, Title, imdbRating, Runtime, Genre, Plot, uuid } = data;
 
     let btnStatus = 'add'
 
@@ -48,4 +47,12 @@ function getWatchlist() {
     }
 }
 
-export {Movie, getMovieHTML, getWatchlist};
+function removeFromWatchlist(watchlist, movieSafe) {
+    return watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
+}
+
+function safeToLocalStorage(list) {
+    localStorage.setItem('watchlist', JSON.stringify(list));
+}
+
+export {Movie, getMovieHTML, getWatchlist, removeFromWatchlist, safeToLocalStorage};

@@ -1,8 +1,8 @@
-import {Movie, getMovieHTML, getWatchlist} from './Movie.js'
+import {Movie, getMovieHTML, getWatchlist, removeFromWatchlist, safeToLocalStorage} from './utils.js'
 
 
 let moviesArray = [];
-let watchlist = getWatchlist();
+let list = getWatchlist();
 
 const mainEl = document.getElementById("main")
 const searchEl = document.getElementById('search-bar')
@@ -21,7 +21,7 @@ if (searchEl) {
                             .then(res => res.json())
                             .then(data => {
                                 moviesArray.push(new Movie(data));
-                                renderMovies();
+                                getSearchHtml();
                             })
                     })
                 } else {
@@ -32,7 +32,7 @@ if (searchEl) {
     })
 }
 
-function renderMovies(){
+function getSearchHtml(){
     mainEl.innerHTML = ''
     moviesArray.map(movie => {
         mainEl.innerHTML += getMovieHTML(movie)
@@ -42,13 +42,13 @@ function renderMovies(){
 document.addEventListener('click', e => {
     if (moviesArray.some(movie => movie.uuid === e.target.id)) {
         const movieSafe = moviesArray.filter(movie => movie.uuid === e.target.id)
-        if(watchlist.some(movie => movie.Title === movieSafe[0].Title)) {
-            watchlist = watchlist.filter(movie => movie.Title !== movieSafe[0].Title)
+        if(list.some(movie => movie.Title === movieSafe[0].Title)) {
+            list = removeFromWatchlist(list, movieSafe);
         } else {
-            watchlist.push(moviesArray.filter(movie => movie.uuid === e.target.id)[0])
+            list.push(moviesArray.filter(movie => movie.uuid === e.target.id)[0])
         }
-        localStorage.setItem('watchlist', JSON.stringify(watchlist));
-        renderMovies();
+        safeToLocalStorage(list);
+        getSearchHtml();
     }
 })
 
